@@ -10,24 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219112748) do
+ActiveRecord::Schema.define(version: 20171222112537) do
 
   create_table "bookmarks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.string   "string"
     t.string   "url"
-    t.string   "text"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
-    t.integer  "children_count"
-    t.index ["depth"], name: "index_bookmarks_on_depth", using: :btree
-    t.index ["lft"], name: "index_bookmarks_on_lft", using: :btree
-    t.index ["parent_id"], name: "index_bookmarks_on_parent_id", using: :btree
-    t.index ["rgt"], name: "index_bookmarks_on_rgt", using: :btree
+    t.integer  "user_id"
+    t.integer  "directory_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "directories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

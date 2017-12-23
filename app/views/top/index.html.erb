@@ -1,56 +1,36 @@
 <div class="col-md-12" style="margin-bottom:30px;">
   <%= form_for(@bookmark) do |f| %>
-    <% if @bookmark.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(bookmark.errors.count, "error") %> prohibited this bookmark from being saved:</h2>
-        <ul>
-          <% @bookmark.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
 
+  <div class="col-md-12 form-group" style="">
 
-  <div class="col-md-12" style="">
-    <div class="col-md-1 text-right" style="font-size:20px;padding:3px 0 0 0;">
-      Place：
-    </div>
-    <div class="col-md-8">
-      <%= f.select :parent_id, nested_set_options(Bookmark) {|i| "#{'　' * i.level} #{i.name}" }, { selected: @bookmark.parent_id, include_blank: true }, class:"form-control" %>
-    </div>
-  </div>
-  <div class="col-md-12" style="margin-top:10px;">
-    <div class="col-md-1 text-right" style="font-size:20px;padding:3px 0 0 0;">
+  <div class="col-md-4" style="margin-top:10px;">
+    <div class="col-md-12" style="font-size:20px;">
       URL：
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
       <%= f.text_field :url, class:"input_url form-control", placeholder:"https://〜〜〜" %>
     </div>
   </div>
-  <div class="col-md-12" style="margin-top:10px;">
-    <div class="col-md-1 text-right" style="font-size:20px;padding:3px 0 0 0;">
+  <div class="col-md-4" style="margin-top:10px;">
+    <div class="col-md-12" style="font-size:20px;">
       TITLE：
     </div>
-    <div class="col-md-8">
+    <div class="col-md-12">
       <%= f.text_field :name, class:"input_title form-control", placeholder:"" %>
     </div>
-    <button type="submit" class="col-md-2 btn btn-success">STOCK</button>
   </div>
+  <div class="col-md-2">
+    <button type="submit" class="btn btn-success" style="margin-top:38px;">STOCK</button>
+  </div>
+
   <% end %>
 </div>
 
 
 <div class="col-md-5">
   <div class="well sidebar-nav col-md-12">
-    <div style="">
-      <span style="font-size:30px;margin-right:20px;padding-top:10px;">Bookmarks</span>
-      <%= link_to 'Create', "#", class: 'btn btn-success', id: 'create_bookmark' %>
-      <%= link_to 'Rename', "#", class: 'btn btn-warning', id: 'rename_bookmark' %>
-      <%= link_to 'Delete', "#", class: 'btn btn-danger',  id: 'delete_bookmark' %>
-    </div>
-    <div id="jstree_bookmarks"></div>
-    <br />
+
+
 
   </div>
 </div>
