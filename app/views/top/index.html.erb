@@ -52,7 +52,7 @@
 <div class="col-md-7">
 
   <div class="bookmarks_select_li_title col-md-12" style="font-size:28px;">
-    <span class="right-title" style="display: inline-block;vertical-align:middle;">AllBookMark</span>
+    <span class="right-title" style="display: inline-block;vertical-align:middle;">ALL</span>
   </div>
 
 
@@ -80,7 +80,7 @@
   <div class="col-md-12" style="margin-bottom:10px;">フォルダの作成</div>
   <%= form_for(@directory) do |f| %>
     <div class="col-md-7">
-      <%= f.text_field :name, class:"input_directory_name form-control", placeholder:"ディレクトリ名" %>
+      <%= f.text_field :name, class:"input_directory_name form-control", placeholder:"フォルダ名" %>
     </div>
     <div class="col-md-4">
       <button type="submit" class="btn btn-success" style="">CREATE</button>
