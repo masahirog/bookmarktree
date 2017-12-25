@@ -66,7 +66,7 @@ class BookmarksController < ApplicationController
   end
 
   def get_title
-    @title = Scraping.movie_urls(params)
+    @title = Scraping.title_url(params)
     respond_to do |format|
       format.html
       format.json

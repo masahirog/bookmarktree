@@ -1,6 +1,6 @@
 $(function(){
-  // $('.input_url').focus();
-  window.onfocus=function(){
+  $('.input_url').focus();
+  window.onfocus = function(){
   $('.input_url').focus();
   }
 
@@ -19,7 +19,6 @@ $(function(){
     connectWith: ".bookmarks_ul",
     opacity: 0.7,
     stop: function(event, ui){
-
       var bookmark_id = ui.item.attr('id')
       //移動後▼
       var directory_id = ui.item.parent().parent().find(".directory_id").text();
@@ -34,7 +33,7 @@ $(function(){
   );
 
 
-  $(".input_url").on("keyup",function(){
+  $(".input_url").on("change",function(){
     var url = $(".input_url").val();
     var id = 1
     $.ajax({
@@ -60,7 +59,6 @@ $(function(){
       };
       this_ul.each(function(){
         var site = $(this).attr("href")
-        console.log(site);
         window.open(site)
       });
     });
