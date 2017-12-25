@@ -1,4 +1,8 @@
 $(function(){
+  // $('.input_url').focus();
+  window.onfocus=function(){
+  $('.input_url').focus();
+  }
 
   $(".ul-sortable").sortable(
     {cancel : '.stop',
@@ -84,13 +88,13 @@ $(function(){
     }).done(function(data){
       var title = data.bookmark.title;
       $(".input_title").val(title);
-    })
     });
+  });
 
     $(".all-open").on("click",function(){
       var this_ul = $(this).parent().parent().find(".bookmarks_select_li")
       var lilen = this_ul.length
-      if (lilen > 10) {
+      if (lilen > 9) {
         if(!confirm(lilen+"個のタブひらきまっせ？")){
             return false;
           }else{
