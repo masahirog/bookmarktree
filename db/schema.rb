@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20171222112537) do
 
   create_table "bookmarks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.text     "name",         limit: 65535
     t.text     "url",          limit: 65535
     t.integer  "user_id"
     t.integer  "directory_id"

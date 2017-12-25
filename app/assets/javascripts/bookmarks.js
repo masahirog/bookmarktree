@@ -4,6 +4,13 @@ $(function(){
   $('.input_url').focus();
   }
 
+  $(".directory_create").on("click",function(){
+    $(".directory_create_area").show();
+  });
+$(".directory_create_hidden").on("click",function(){
+  $(".directory_create_area").hide();
+})
+
   $(".bookmarks_select_li").hover(function() {
     $(this).children(".dd-image").show();
     $(this).children(".dd-image").css("cursor","move");

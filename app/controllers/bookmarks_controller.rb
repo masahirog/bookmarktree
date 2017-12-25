@@ -5,6 +5,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.where(user_id: current_user.id).all
+    @search = Bookmark.search(params).limit(10)
   end
 
   # GET /bookmarks/1
