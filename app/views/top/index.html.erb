@@ -67,7 +67,25 @@
       </div>
       <ul class="bookmarks_ul col-md-12 list-group ul-sortable" style="list-style:none;">
         <% directory.bookmarks.each do |bm| %>
-          <%= link_to "#{bm.name}", bm.url,{class:"col-md-12 list-group-item bookmarks_select_li",target:"_blank",id:"#{bm.id}",style:'padding:3px 3px 3px 10px;'} %>
+
+        <%= "<a href='#{bm.url}' class='col-md-12 list-group-item bookmarks_select_li' id='#{bm.id}' style='padding:3px 3px 3px 10px;' target='_blank'>".html_safe %>
+          <div class="col-md-11">
+            <%= bm.name %>
+          </div>
+          <div class="dd-image col-md-1 pull-right text-right" style="padding-right:6px;display:none;">
+            <img src="<%= asset_path "icons_dd.png" %>" style="width:18px;" alt="">
+          </div>
+        </a>
+
+
+          <!-- <li class='col-md-12 list-group-item bookmarks_select_li' id='#{bm.id}' style='padding:3px 3px 3px 10px;cursor: hand; cursor:pointer;'>
+            <div class="link-div col-md-11">
+              <%= link_to "#{bm.name}", bm.url %>
+            </div>
+            <div class="dd-image col-md-1 pull-right text-right" style="padding-right:6px;display:none;">
+              <img src="/assets/icons_dd.png" style="width:18px;" alt="">
+            </div> -->
+          </li>
         <% end %>
       </ul>
     </div>

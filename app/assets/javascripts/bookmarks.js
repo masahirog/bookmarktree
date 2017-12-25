@@ -4,6 +4,16 @@ $(function(){
   $('.input_url').focus();
   }
 
+  $(".bookmarks_select_li").hover(function() {
+    $(this).children(".dd-image").show();
+    $(this).children(".dd-image").css("cursor","move");
+  }, function() {
+    $(this).children(".dd-image").hide();
+  });
+  $(".bookmarks_select_li").on("click",function() {
+    $(this).children(".link-div")
+  });
+
   $(".ul-sortable").sortable(
     {cancel : '.stop',
     connectWith: ".bookmarks_ul",
@@ -13,7 +23,6 @@ $(function(){
       var bookmark_id = ui.item.attr('id')
       //移動後▼
       var directory_id = ui.item.parent().parent().find(".directory_id").text();
-      console.log(directory_id)
       $.ajax({
         url: "bookmarks/update_directory/"+bookmark_id,
         type: "GET",
@@ -23,58 +32,7 @@ $(function(){
     }
   }
   );
-  function reset_row_order(){
-    var thisitem = $(this).children().text();
-    // $.ajax({
-    //     url: "projects/change_session_year",
-    //     type: "GET",
-    //     data: {year : $(":selected").attr("value"),
-    //             id: 1,
-    //             mode: 'hoge',
-    //             type: 'entry'
-    //             },
-    //     dataType: "html",
-    //     success: function(data) {
-    //         alert("success");
-    //     },
-    //     error: function(data) {
-    //         alert("errror");
-    //     }
-    // });
-  };
 
-
-  // $("#jstree_bookmarks").on("click","a",function(){
-  //   $(".bookmarks_select_li").remove();
-  //   var id = $(this).parent().attr("id");
-  //   var title = $(this).text();
-  //
-  //   $.ajax({
-  //     url: "/bookmarks/get_jstree/" + id,
-  //     data: { id : id },
-  //     dataType: "json",
-  //     async: false
-  //   })
-  //   .done(function(data){
-  //     if (data.bookmark=="") {
-  //       $(".right-title").text(title);
-  //       $(".bookmarks_select_ul").append("<a href=# class='li_0 bookmarks_select_li col-md-12 list-group-item' target='_blank' style='font-size:15px;'>")
-  //       $(".li_0").append(title+"</a>");
-  //     };
-  //     $.each(data.bookmark, function(index,value){
-  //       var name = this.name
-  //       var url = this.url
-  //       $(".right-title").text(title);
-  //       if (name=="") {
-  //         $(".bookmarks_select_ul").append("<a href="+url+" class='li_"+index+" bookmarks_select_li col-md-12 list-group-item' target='_blank' style='font-size:15px;'>")
-  //         $(".li_"+index).append(url+"</a>")
-  //       }else{
-  //         $(".bookmarks_select_ul").append("<a href="+url+" class='li_"+index+" bookmarks_select_li col-md-12 list-group-item' target='_blank' style='font-size:15px;'>")
-  //         $(".li_"+index).append(name+"</a>")
-  //       };
-  //     });
-  //   });
-  // });
 
   $(".input_url").on("keyup",function(){
     var url = $(".input_url").val();
